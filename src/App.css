@@ -31,3 +31,41 @@
     transform: rotate(360deg);
   }
 }
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.pr-5 {
+  padding-right: 5px !important;
+}
+
+.text-right {
+  float: right;
+  cursor: pointer;
+}
+
+.dropdown-menu .fa:before {
+  padding-right: 10px;
+}
+
+.text-right:hover {
+  color: red;
+}
+
+.sort_selected::after {
+  content: '\f00c';
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0px 0px 0px 10px;
+  display: inline-block;
+}
