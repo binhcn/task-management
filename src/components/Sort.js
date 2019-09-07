@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 
 class Sort extends Component {
+	
+	onClick = (sortBy, sortValue) => {
+		this.props.onSort(sortBy, sortValue);
+	}
+
 	render() {
+		var {sortBy, sortValue} = this.props;
 		return (
 			<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 				<div className="dropdown">
@@ -16,28 +22,40 @@ class Sort extends Component {
 						Arrange<span className="fa fa-caret-square-o-down ml-5"></span>
 					</button>
 					<ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-						<li>
-							<a href="/#" role="button" className="sort_selected">
+						<li onClick={() => this.onClick('name', 1)}>
+							<a href="/#" 
+								role="button" 
+								className={(sortBy === 'name' && sortValue === 1) ? 'sort_selected' : ''}
+							>
 								<span className="fa fa-sort-alpha-asc">
 									Name A-Z
 								</span>
-              </a>
+							</a>
 						</li>
-						<li>
-							<a href="/#" role="button" className="sort_selected">
+						<li onClick={() => this.onClick('name', -1)}>
+							<a href="/#" 
+								role="button" 
+								className={(sortBy === 'name' && sortValue === -1) ? 'sort_selected' : ''}
+							>
 								<span className="fa fa-sort-alpha-desc">
 									Name Z-A
 								</span>
-              </a>
+							</a>
 						</li>
 						<li role="separator" className="divider"></li>
-						<li>
-							<a href="/#" role="button">
+						<li onClick={() => this.onClick('status', 1)}>
+							<a href="/#" 
+								role="button" 
+								className={(sortBy === 'status' && sortValue === 1) ? 'sort_selected' : ''}
+							>
 								Active status
               </a>
 						</li>
-						<li>
-							<a href="/#" role="button">
+						<li onClick={() => this.onClick('status', -1)}>
+							<a href="/#" 
+								role="button" 
+								className={(sortBy === 'status' && sortValue === -1) ? 'sort_selected' : ''}
+							>
 								Hidden status
               </a>
 						</li>
